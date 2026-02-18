@@ -19,3 +19,21 @@
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN, DHTTYPE);
+
+/**
+ * @brief Initialize peripherals and Serial output.
+ *
+ * Sets up Serial at 9600 baud, initializes the DHT sensor library,
+ * and prints a startup banner to the Serial Monitor.
+ *
+ * This function is called once by the Arduino core during boot.
+ */
+void setup() {
+
+    Serial.begin(9600);
+    dht.begin();
+
+    Serial.println("DHT11 Temperature and Humidity Monitor");
+    Serial.println("System Initialized...");
+
+}
